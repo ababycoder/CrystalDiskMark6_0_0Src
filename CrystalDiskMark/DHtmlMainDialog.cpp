@@ -47,15 +47,15 @@ void CDHtmlMainDialog::SetWindowTitle(CString message, CString mode)
 
 	if(! mode.IsEmpty())
 	{
-		title.Format(_T("%s %s %s %s"), PRODUCT_NAME, PRODUCT_VERSION, PRODUCT_EDITION, mode);
+		title.Format(_T("(BumJun) %s %s %s %s"), PRODUCT_NAME, PRODUCT_VERSION, PRODUCT_EDITION, mode);
 	}
 	else if(! message.IsEmpty())
 	{
-		title.Format(_T("%s"), message);
+		title.Format(_T("(BumJun) %s"), message);
 	}
 	else
 	{
-		title.Format(_T("%s %s %s"), PRODUCT_NAME, PRODUCT_VERSION, PRODUCT_EDITION);
+		title.Format(_T("(BumJun) %s %s %s"), PRODUCT_NAME, PRODUCT_VERSION, PRODUCT_EDITION);
 	}
 	SetWindowText(title);
 }

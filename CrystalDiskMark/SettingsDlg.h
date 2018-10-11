@@ -20,11 +20,11 @@ public:
 	CSettingsDlg(CWnd* pParent = NULL);
 	virtual ~CSettingsDlg();
 
-// ダイアログ データ
+// ?イアログ デ??
 	enum { IDD = IDD_SETTINGS, IDH = IDR_HTML_DUMMY };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV サポート
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV サ??ト
 	virtual BOOL OnInitDialog();
 	virtual void OnDocumentComplete(LPDISPATCH pDisp, LPCTSTR szUrl);
 	virtual void OnCancel();

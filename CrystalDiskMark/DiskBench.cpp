@@ -115,6 +115,7 @@ UINT ExecDiskBenchAll(LPVOID dlg)
 {
 	if(Init(dlg))
 	{
+		Interval(dlg); //BBJJ
 		DiskSpd(dlg, TEST_SEQUENTIAL_READ1);
 		Interval(dlg);
 #ifdef SEQUENTIAL2

@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 日本語 (日本) resources
+// Japanese (Japan) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
@@ -46,8 +46,8 @@ BEGIN
     "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
     "LANGUAGE 17, 1\r\n"
     "#pragma code_page(932)\r\n"
-    "#include ""res\\DiskMark.rc2""  // Microsoft Visual C++ 以外で編集されたリソース\r\n"
-    "#include ""afxres.rc""     // 標準コンポーネント\r\n"
+    "#include ""res\\DiskMark.rc2""  // Microsoft Visual C++ ????????????\r\n"
+    "#include ""afxres.rc""     // ?????????\r\n"
     "#endif\r\n"
     "\0"
 END
@@ -61,11 +61,7 @@ END
 //
 
 IDD_DISKMARK_DIALOG DIALOGEX 0, 0, 267, 185
-#ifdef SUISHO_SHIZUKU_SUPPORT
-STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
-#else
 STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
-#endif
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "CrystalDiskMark"
 MENU IDR_MENU
@@ -94,6 +90,7 @@ END
 //
 
 IDR_HTML_DUMMY          HTML                    "res\\dummy.html"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -190,21 +187,21 @@ BEGIN
             MENUITEM "Default (Random)",            ID_MODE_DEFAULT
             MENUITEM "All 0x00 (0 Fill)",           ID_MODE_ALL0X00
         END
-		POPUP "Interval Time"
-		BEGIN
-		    MENUITEM "0 sec", ID_INTERVAL_TIME_0
-			MENUITEM "1 sec", ID_INTERVAL_TIME_1
-			MENUITEM "3 sec", ID_INTERVAL_TIME_3
-			MENUITEM "5 sec", ID_INTERVAL_TIME_5
-			MENUITEM "10 sec", ID_INTERVAL_TIME_10
-			MENUITEM "30 sec", ID_INTERVAL_TIME_30
-			MENUITEM "60 sec", ID_INTERVAL_TIME_60
-			MENUITEM "180 sec", ID_INTERVAL_TIME_180
-			MENUITEM "300 sec", ID_INTERVAL_TIME_300
-			MENUITEM "600 sec", ID_INTERVAL_TIME_600
-		END
-		MENUITEM "Queues && Threads", ID_SETTINGS_QUEUESTHREADS
-		MENUITEM "IE8 Mode (IE9-)", ID_IE8_MODE
+        POPUP "Interval Time"
+        BEGIN
+            MENUITEM "0 sec",                       ID_INTERVAL_TIME_0
+            MENUITEM "1 sec",                       ID_INTERVAL_TIME_1
+            MENUITEM "3 sec",                       ID_INTERVAL_TIME_3
+            MENUITEM "5 sec",                       ID_INTERVAL_TIME_5
+            MENUITEM "10 sec",                      ID_INTERVAL_TIME_10
+            MENUITEM "30 sec",                      ID_INTERVAL_TIME_30
+            MENUITEM "60 sec",                      ID_INTERVAL_TIME_60
+            MENUITEM "180 sec",                     ID_INTERVAL_TIME_180
+            MENUITEM "300 sec",                     ID_INTERVAL_TIME_300
+            MENUITEM "600 sec",                     ID_INTERVAL_TIME_600
+        END
+        MENUITEM "Queues && Threads",           ID_SETTINGS_QUEUESTHREADS
+        MENUITEM "IE8 Mode (IE9-)",             ID_IE8_MODE
     END
     POPUP "&Theme"
     BEGIN
@@ -215,9 +212,9 @@ BEGIN
             MENUITEM "125%",                        ID_ZOOM_125
             MENUITEM "150%",                        ID_ZOOM_150
             MENUITEM "200%",                        ID_ZOOM_200
-			MENUITEM "250%",                        ID_ZOOM_250
-			MENUITEM "300%",                        ID_ZOOM_300
-			MENUITEM "400%",                        ID_ZOOM_400
+            MENUITEM "250%",                        ID_ZOOM_250
+            MENUITEM "300%",                        ID_ZOOM_300
+            MENUITEM "400%",                        ID_ZOOM_400
             MENUITEM "Auto",                        ID_ZOOM_AUTO
         END
         MENUITEM SEPARATOR
@@ -250,13 +247,11 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-#ifdef SUISHO_SHIZUKU_SUPPORT
-IDR_MAINFRAME           ICON                    "res\\DiskMarkS.ico"
-IDI_TRAY_ICON           ICON                    "res\\DiskMarkS16.ico"
-#else
 IDR_MAINFRAME           ICON                    "res\\DiskMark.ico"
+
 IDI_TRAY_ICON           ICON                    "res\\DiskMark16.ico"
-#endif
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Accelerator
@@ -273,7 +268,63 @@ BEGIN
     VK_F5,          IDOK,                   VIRTKEY, NOINVERT
 END
 
-#endif    // 日本語 (日本) resources
+#endif    // Japanese (Japan) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INPUT_DIALOG DIALOGEX 0, 0, 193, 29
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "How many times repeat CDM?"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,136,7,50,15
+    CTEXT           "Input a number to repeat:",IDC_STATIC,7,7,91,8
+    EDITTEXT        IDC_EDIT,97,7,37,15,ES_CENTER | ES_NUMBER,WS_EX_RIGHT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_INPUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_INPUT_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -291,8 +342,8 @@ END
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
 LANGUAGE 17, 1
 #pragma code_page(932)
-#include "res\DiskMark.rc2"  // Microsoft Visual C++ 以外で編集されたリソース
-#include "afxres.rc"     // 標準コンポーネント
+#include "res\DiskMark.rc2"  // Microsoft Visual C++ �､鞣ｪﾇｪｵｪ�ｪｿｫ�ｫｽ?ｫｹ
+#include "afxres.rc"     // ｫｳｫﾝ?ｫﾍｫﾈ
 #endif
 
 /////////////////////////////////////////////////////////////////////////////

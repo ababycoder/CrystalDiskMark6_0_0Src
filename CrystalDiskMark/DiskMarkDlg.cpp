@@ -14,6 +14,7 @@
 #include "AboutDlg.h"
 #include "GetFileVersion.h"
 #include "GetOsInfo.h"
+#include "InputDlg.h" //BBJJ
 
 #include <math.h>
 #include <exdispid.h>
@@ -48,6 +49,9 @@ BEGIN_DHTML_EVENT_MAP(CDiskMarkDlg)
 	DHTML_EVENT_ONCLICK(_T("Random4KB3"), OnRandom4KB3)
 //	DHTML_EVENT_ONCHANGE(_T("TestDrive"), OnChangeTestDrive)
 END_DHTML_EVENT_MAP()
+
+int autoCnt = 0, autoMax = 3; //BBJJ
+CString oldClip; //BBJJ
 
 CDiskMarkDlg::CDiskMarkDlg(CWnd* pParent /*=NULL*/)
 	: CDHtmlMainDialog(CDiskMarkDlg::IDD, CDiskMarkDlg::IDH,
@@ -138,6 +142,8 @@ BOOL CDiskMarkDlg::OnInitDialog()
 	m_IndexTestDrive = 0;	// default value may be "C:\".
 	m_MaxIndexTestDrive = 0;
 
+	m_TestDriveLetter = 'D' - 'A'; //// default value must be "D:\". BBJJ
+	/*//BBJJ
 	m_TestDriveLetter = GetPrivateProfileInt(_T("Settings"), _T("DriveLetter"), 2, m_Ini);
 	if(m_TestDriveLetter != 99 && (m_TestDriveLetter < 0 || m_TestDriveLetter > 'Z' - 'A'))
 	{
@@ -150,24 +156,34 @@ BOOL CDiskMarkDlg::OnInitDialog()
 		GetPrivateProfileStringW(_T("Settings"), _T("TargetPath"), L"", targetPath, MAX_PATH, m_Ini);
 		m_TestTargetPath = targetPath;
 	}
+	*///BBJJ
 
+	m_IndexTestCount = 4;	// default value must be 5. BBJJ
+	/*//BBJJ
 	m_IndexTestCount = GetPrivateProfileInt(_T("Settings"), _T("TestCount"), 4, m_Ini);
 	if (m_IndexTestCount < 0 || m_IndexTestCount >= 9)
 	{
 		m_IndexTestCount = 4;	// default value is 5.
 	}
+	*///BBJJ
 
+	m_IndexTestSize = 3;	// default value must be 1000 MiB; BBJJ
+	/*//BBJJ
 	m_IndexTestSize = GetPrivateProfileInt(_T("Settings"), _T("TestSize"), 3, m_Ini);
 	if(m_IndexTestSize < 0 || m_IndexTestSize > 9)
 	{
 		m_IndexTestSize = 3;	// default value is 1000 MiB;
 	}
+	*///BBJJ
 
+	m_IntervalTime = 5;	// default value must be 5; BBJJ
+	/*//BBJJ
 	m_IntervalTime = GetPrivateProfileInt(_T("Settings"), _T("IntervalTime"), 5, m_Ini);
 	if (m_IntervalTime < 0)
 	{
 		m_IntervalTime = 5;	// default value is 5;
 	}
+	*///BBJJ
 
 	UpdateQueuesThreads();
 
@@ -393,8 +409,21 @@ LRESULT CDiskMarkDlg::OnUpdateScore(WPARAM wParam, LPARAM lParam)
 
 LRESULT CDiskMarkDlg::OnExitBenchmark(WPARAM wParam, LPARAM lParam)
 {
+	CComPtr<IHTMLElement> pHtmlElement; //BBJJ
+
 	ChangeButtonStatus(TRUE);
 	EnableMenus();
+
+	ResultText(RESULT_TEXT_CLIPBOARD); //BBJJ
+	autoCnt++; //BBJJ
+	if (autoCnt%autoMax == 0) { //BBJJ
+		CString cstr; //BBJJ
+		cstr.Format(_T("Measured CDM performance %d times.\nCopied results to clipboard."), autoCnt); //BBJJ
+		MessageBox(cstr, _T("Job Finished!"), MB_ICONINFORMATION | MB_OK | MB_APPLMODAL); //BBJJ
+	} //BBJJ
+	else { //BBJJ
+		OnAll(pHtmlElement); //BBJJ
+	}//BBJJ
 
 	return 0;
 }
@@ -663,6 +692,18 @@ HRESULT CDiskMarkDlg::OnAll(IHTMLElement* /*pElement*/)
 {
 	if(m_WinThread == NULL)
 	{
+		if (autoCnt == 0) {//BBJJ
+			CInputDlg dialog; //BBJJ
+			if (dialog.DoModal() == IDOK) { //BBJJ
+				autoMax = dialog.m_inputNum; //BBJJ
+			}//BBJJ
+		}//BBJJ
+
+		CString cstr;//BBJJ
+		cstr.Format(_T("===== %d of %d time(s) ====="), autoCnt + 1, autoMax); //BBJJ
+		BSTR bstr = cstr.AllocSysString(); //BBJJ
+		SetElementText(L"Comment", bstr); //BBJJ
+
 		UpdateData(TRUE);
 		InitScore();
 		m_DiskBenchStatus = TRUE;
@@ -1382,6 +1423,11 @@ void CDiskMarkDlg::ResultText(RESULT_TEXT type)
 	cstr.Format(_T("%04d/%02d/%02d %d:%02d:%02d"), st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
 	clip.Replace(_T("%Date%"), cstr);
 
+	if (oldClip.Find(m_Comment) == -1) //BBJJ
+		clip = oldClip + clip; //BBJJ
+	else //BBJJ
+		clip = oldClip; //BBJJ
+
 	if (type == RESULT_TEXT_CLIPBOARD)
 	{
 		if(OpenClipboard())
@@ -1424,6 +1470,7 @@ void CDiskMarkDlg::ResultText(RESULT_TEXT type)
 			fclose(pFile);
 		}
 	}
+	oldClip = clip; //BBJJ
 }
 
 void CDiskMarkDlg::OnZoom75()

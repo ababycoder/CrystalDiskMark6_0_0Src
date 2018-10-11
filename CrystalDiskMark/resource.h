@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ で生成されたインクルード ファイル。
-// DiskMark.rc で使用
+// Microsoft Visual C++ generated include file.
+// Used by DiskMark.rc
 //
 #define IDD_DISKMARK_DIALOG             102
 #define IDR_HTML_ABOUTDLG               103
@@ -15,7 +15,9 @@
 #define IDI_ICON1                       138
 #define IDI_TRAY_ICON                   138
 #define IDD_SETTINGS                    139
+#define IDD_INPUT_DIALOG                140
 #define IDC_BUTTON1                     1002
+#define IDC_EDIT                        1003
 #define ID_FILE_EXIT                    32771
 #define ID_HELP_ABOUT                   32772
 #define ID_THEME                        32775
@@ -37,8 +39,6 @@
 #define ID_ZOOM_250                     32805
 #define ID_ZOOM_300                     32806
 #define ID_ZOOM_400                     32807
-#define ID_ZOOM_AUTO                    33808
-#define ID_IE8_MODE                     33809
 #define ID_HELP_HELP                    32810
 #define ID_HELP_CRYSTALDEWWORLD         32811
 #define ID_FILE_BENCHMARKMODE           32812
@@ -47,7 +47,8 @@
 #define ID_MODE_ALL0XFF                 32817
 #define ID_SETTINGS_QUEUESTHREADS       32818
 #define ID_RESULT_SAVE                  32819
-
+#define ID_ZOOM_AUTO                    33808
+#define ID_IE8_MODE                     33809
 #define ID_INTERVAL_TIME_0              33820
 #define ID_INTERVAL_TIME_1              33821
 #define ID_INTERVAL_TIME_3              33822
@@ -63,7 +64,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_RESOURCE_VALUE        142
 #define _APS_NEXT_COMMAND_VALUE         33809
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           107
