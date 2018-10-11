@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DiskMark", "DiskMark.vcxproj", "{CDF33C67-147E-4C50-BC76-99A6BCB214D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release(UWP)|Win32 = Release(UWP)|Win32
+		Release(UWP)|x64 = Release(UWP)|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		ReleaseShizuku(UWP)|Win32 = ReleaseShizuku(UWP)|Win32
+		ReleaseShizuku(UWP)|x64 = ReleaseShizuku(UWP)|x64
+		ReleaseShizuku|Win32 = ReleaseShizuku|Win32
+		ReleaseShizuku|x64 = ReleaseShizuku|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Debug|Win32.Build.0 = Debug|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Debug|x64.ActiveCfg = Release|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Debug|x64.Build.0 = Release|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release(UWP)|Win32.ActiveCfg = Release(UWP)|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release(UWP)|Win32.Build.0 = Release(UWP)|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release(UWP)|x64.ActiveCfg = Release(UWP)|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release(UWP)|x64.Build.0 = Release(UWP)|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release|Win32.ActiveCfg = Release|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release|Win32.Build.0 = Release|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release|x64.ActiveCfg = Release|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.Release|x64.Build.0 = Release|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku(UWP)|Win32.ActiveCfg = ReleaseShizuku(UWP)|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku(UWP)|Win32.Build.0 = ReleaseShizuku(UWP)|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku(UWP)|x64.ActiveCfg = ReleaseShizuku(UWP)|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku(UWP)|x64.Build.0 = ReleaseShizuku(UWP)|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku|Win32.ActiveCfg = ReleaseShizuku|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku|Win32.Build.0 = ReleaseShizuku|Win32
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku|x64.ActiveCfg = ReleaseShizuku|x64
+		{CDF33C67-147E-4C50-BC76-99A6BCB214D9}.ReleaseShizuku|x64.Build.0 = ReleaseShizuku|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81DC78FD-9979-489D-930A-DA0CD60B9148}
+	EndGlobalSection
+EndGlobal
